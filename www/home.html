@@ -1,0 +1,93 @@
+<ons-page class="transparent">
+  <ons-toolbar modifier="transparent">
+    <div class="right">
+      <ons-toolbar-button ng-click="menu.setMainPage('locations.html', {closeMenu: true})" ><ons-icon icon="ion-ios-location" style="color: white; font-size: 28px;"></ons-icon></ons-toolbar-button>
+    </div>
+    <div class="left">
+      <ons-toolbar-button ng-click="menu.toggle()"><ons-icon icon="ion-navicon-round" style="color: white; font-size: 28px;" fixed-width="false"></ons-icon></ons-toolbar-button>
+    </div>
+  </ons-toolbar>
+    
+  <div class="app-page">
+    <div class="app-hero2">
+      <ul rn-carousel rn-carousel-auto-slide rn-carousel-index="0" rn-carousel-pause-on-hover class="image">
+        <li>
+            <div class="item-label">Welcome</div><br>
+            <div ng-style="{'background-image': 'url(images/ionWP0.png)'}"  class="bgimage2"></div></li>
+        <li>
+            <div class="item-label">Browse nearby venues and deals offered</div><br>
+            <div ng-style="{'background-image': 'url(images/ionWP1.png)'}"  class="bgimage2"></div>
+          
+          </li>
+        <li>
+            <div class="item-label">Checkin at your favorite venues</div><br>
+            <div ng-style="{'background-image': 'url(images/ionWP2.png)'}"  class="bgimage2"></div></li>
+        <li>
+          <div class="item-label">Redeem offers</div><br>
+          <div ng-style="{'background-image': 'url(images/ionWP3.png)'}"  class="bgimage2"></div></li>
+                  <li>
+          <div class="item-label">Save offers to redeem later</div><br>
+          <div ng-style="{'background-image': 'url(images/ionWP4.png)'}"  class="bgimage2"></div></li>
+      <li>
+          <div class="item-label">Add venues to your favorites list</div><br>
+          <div ng-style="{'background-image': 'url(images/ionWP5.png)'}"  class="bgimage2"></div></li>
+      <li>
+          <div class="item-label">Follow other VIP Members</div><br>
+          <div ng-style="{'background-image': 'url(images/ionWP6.png)'}"  class="bgimage2"></div></li>
+      </ul>  <br>    <br> 
+<div class="rn-carousel-indicator custom-indicator">
+                        <span ng-repeat="slide in slides2" ng-class="{active: $index==$parent.carouselIndex22}" ng-click="$parent.carouselIndex22 = $index">★</span>
+                    </div>
+      </div>
+
+      <div></div>
+       
+
+
+  </div>
+
+
+  
+        <div class="bottom-content row" align="center">
+      <div class="col col-center">
+        <ons-button modifier="cta" onclick="menu.setMainPage('login.html', { animation : 'slide' } )"> <i class="ion-android-chat"></i>  Login    
+        </ons-button>
+      </div>
+      <div class="col col-center">
+        <ons-button modifier="register" onclick="menu.setMainPage('signup.html', { animation : 'slide' } )">
+         <i class="ion-document-text"></i> Register 
+        </ons-button>
+      </div>
+    </div>
+    
+
+     
+    
+    
+
+<!--  <div class="details-content glass">-->
+<!--    <div class="welcome">-->
+<!--      <h2 class="home-title">MyVIPClubs</h2>-->
+<!--      <p class="subtitle">Steakhouse &amp; Seafood</p>-->
+
+        
+<!--
+    </div>
+      
+-->
+
+
+      
+    <div class="blur">
+      <img src="images/BG-Image.png" class="bg">
+    </div>
+  </div>
+
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+   <filter id="blur">
+     <feGaussianBlur stdDeviation="5" />
+     </filter>
+  </svg> 
+
+
+</ons-page>

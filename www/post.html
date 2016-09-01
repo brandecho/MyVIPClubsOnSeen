@@ -1,0 +1,212 @@
+<script>
+  ons.bootstrap('app'); // Optionally loading ngAnimate module
+  angular.module('app').controller("newsController", function($scope){ });
+</script>
+
+
+
+
+<ons-page ng-controller="postController">
+
+    <ons-tabbar>
+      <ons-tab page="latest.html" icon="ion-search" label="Find a place" active="true">
+      </ons-tab>
+      <ons-tab page="favorites.html" icon="ion-heart" label="Favorites">
+      </ons-tab>
+      <ons-tab page="profile.html" icon="ion-person" label="Profile">
+      </ons-tab>
+    </ons-tabbar>
+
+  
+      <ons-page modifier="shop-details">
+        <ons-toolbar modifier="transparent">
+          <div class="right">
+            <ons-toolbar-button><ons-icon icon="ion-ios-chatboxes" style="color: white"></ons-icon></ons-toolbar-button>
+          </div>
+          <div class="left">
+     <ons-back-button>Back</ons-back-button>
+          </div>
+        </ons-toolbar>
+
+
+        <div class="card" ng-style="{'background' : 'bgColor', 'background-image': 'url({{ item.custom_fields.listing_banner|htmlToPlaintext }})', 'background-size': 'cover' }">
+            
+             <div class="" ng-style="{'background' : 'bgColor', 'background-image': 'url(http://www.myvipclubs.com/test/wp-content/uploads/2014/07/overlay2.jpg)', 'background-size': 'cover' }">
+                 </div>
+ 
+
+          <div class="card-name"> {{ item.title | limitTo: 100 }}</div>
+            
+<!--             <div class="card-desc">{{item.content|htmlToPlaintext|limitTo: 100}}</div>-->
+
+        
+<!--          <div class="card-desc">Open from:<br>{{item.custom_fields.listing_timing|htmlToPlaintext}}</div>-->
+            
+
+        </div>
+
+         
+          
+
+        
+            
+                <div class="ratingpost">
+            <div class="ratingpost-num">
+            
+                <div ng-app="app" ng-controller="RatingCtrl" class="container">
+                    <div star-rating ng-model="rating1" max="5" on-rating-selected="rateFunction(rating)"></div>
+            </div>
+                </div>
+                    </div>
+                    
+            <ons-col>
+            <!--<ons-icon icon="fa-star" fixed-width="false"></ons-icon>
+            <ons-icon icon="fa-star" fixed-width="false"></ons-icon>
+            <ons-icon icon="fa-star" fixed-width="false"></ons-icon>
+            <ons-icon icon="fa-star" fixed-width="false"></ons-icon>
+            <ons-icon icon="fa-star-half" fixed-width="false"></ons-icon>-->
+         
+                
+            </ons-col>
+          
+
+        <ons-list style="border-top: none"><ons-list-item style="line-height: 1; padding: 0;">
+          <ons-row class="action">
+
+            <ons-col class="action-col">
+              <div class="action-icon"><ons-icon icon="ion-star"></ons-icon></div>
+              <div class="action-label">Review</div>
+            </ons-col>
+
+            <ons-col class="action-col">
+              <div class="action-icon"><ons-icon icon="ion-bookmark"></ons-icon></div>
+              <div class="action-label">Favorite</div>
+            </ons-col>
+
+            <ons-col class="action-col">
+              <div class="action-icon" ng-click="openSocialSharing()"><ons-icon icon="ion-share"></ons-icon></div>
+              <div class="action-label">Share</div>
+                    
+            </ons-col>
+
+            <ons-col class="action-col">
+              <div class="action-icon"><ons-icon icon="ion-map"></ons-icon></div>
+              <div class="action-label">Directions</div>
+            </ons-col>
+
+          </ons-row>
+        </ons-list-item>
+          
+          </ons-list>
+          
+          
+        <ons-list modifier="inset" style="margin-top: 10px">
+        <ons-list-item>
+          <div class="app-open-desc">
+            <ons-icon icon="fa-info-circle"></ons-icon>
+              <span>{{item.content|htmlToPlaintext}}</span>
+          </div>
+            <div>
+            <ons-button modifier="large--cta" ng-click="openSocialSharing()">Native Social Sharing</ons-button>
+            
+            </div>
+        </ons-list-item>
+        <ons-list-item>
+          <div class="app-open-desc">
+            <ons-icon icon="fa-clock-o"></ons-icon>
+            Open from: {{item.custom_fields.listing_timing|htmlToPlaintext}}
+          </div>
+        </ons-list-item>
+    
+      </ons-list>
+          
+
+        <ons-list style="margin-top: 12px;">
+          
+        <ons-list-item modifier="">
+            
+            <div class="prop-desc">
+              <ons-icon icon="fa-map-marker"></ons-icon>
+             {{item.custom_fields.address|htmlToPlaintext| limitTo: 42}}
+            </div>
+            
+          </ons-list-item>
+
+<!--          <ons-list-item modifier="">
+            <div class="prop-desc">
+              <ons-icon icon="fa-phone-square"></ons-icon>
+                <a ng-href="tel:{{item.custom_fields.phone|htmlToPlaintext}}">{{item.custom_fields.phone|htmlToPlaintext}}</a>
+            
+            </div>
+          </ons-list-item>-->
+
+          <ons-list-item modifier="">
+            <div class="prop-desc">
+              <ons-icon icon="ion-android-volume-up"></ons-icon>
+              {{item.custom_fields.music_genre|htmlToPlaintext}}
+            </div>
+          </ons-list-item>
+            
+                      <ons-list-item modifier="">
+            <div class="prop-desc">
+              <ons-icon icon="ion-radio-waves"></ons-icon>
+              {{item.custom_fields.dress_code|htmlToPlaintext}}
+            </div>
+          </ons-list-item>
+
+          <ons-list-item modifier="chevron">
+            <div class="prop-desc">
+              <ons-icon icon="fa-clock-o"></ons-icon>
+              Make a Reservation
+            </div>
+          </ons-list-item>
+        </ons-list>
+
+    <div class="app-page-photo">  
+      <ons-row class="app-map">   
+        <ons-col>
+          <map center="[{{item.custom_fields.geo_latitude|htmlToPlaintext}}, {{item.custom_fields.geo_longitude|htmlToPlaintext}}]">
+            <marker
+                position="[{{item.custom_fields.geo_latitude|htmlToPlaintext}}, {{item.custom_fields.geo_longitude|htmlToPlaintext}}]"
+                title="Hello Marker"
+                animation="Animation.BOUNCE" 
+                visible="true" ></marker>
+          </map>
+        </ons-col>
+      </ons-row>
+      </div>
+          
+          
+          <ons-list class="">
+              <div ng-app="app" ng-controller="MyCtrl" ng-repeat="group in groups">
+              <ons-list-item>
+                  1
+              </ons-list-item>
+            <ons-list-item>
+                2
+                  </ons-list-item>
+              </div>
+          </ons-list>
+          
+          
+          <ons-list class="">
+              <div ng-app="app" ng-controller="MyCtrl" ng-repeat="group in groups">
+              <ons-list-item class="item-stable"
+                    ng-click="toggleGroup(group)"
+                    ng-class="{active: isGroupShown(group)}">
+              <i class="icon" ng-class="isGroupShown(group) ? 'ion-minus' : 'ion-plus'"></i>
+            &nbsp;
+            {{group.name}}
+              </ons-list-item>
+            <ons-list-item class="item-accordion"
+                    ng-repeat="item in group.items"
+                    ng-show="isGroupShown(group)">
+            {{item.subId}}
+                  </ons-list-item>
+              </div>
+          </ons-list>
+
+      </ons-page>
+    
+
+</ons-page>

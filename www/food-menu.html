@@ -1,0 +1,74 @@
+<ons-navigator animation="slide" var="gallery">  
+  <ons-page>
+    <ons-toolbar modifier="opacity">
+      <div class="left">
+        <ons-toolbar-button ng-click="menu.toggle()"><ons-icon icon="ion-navicon-round" fixed-width="false"></ons-icon></ons-toolbar-button>
+      </div>
+      <div class="center">Venues in New York</div>
+    </ons-toolbar>
+    
+      
+      <div class="app-page" ng-controller="newsController" data-ng-init="getAllRecords()">
+
+    <div class="app-page">
+      <div class="app-page-menu">
+    <ons-list>
+    <ons-list-item modifier="news" class="list-item-container" ng-repeat="item in items track by $index" ng-click="showPost($index)">
+        <ons-row>
+          <ons-col>
+            <ons-button modifier="clean opacity">
+<!--            <ons-button modifier="clean" ng-click="gallery.pushPage('dishes.html');">-->
+<!--              <img src="images/menu/breakfast.png">-->
+            <div class="overla">  
+            <div class="thumbnail-box is-loading" images-loaded="imgLoadedEvents">
+                <img ng-show="{{ item.thumbnail_images }}" ng-src="{{ item.thumbnail_images.thumbnail.url }}" class="thumbnail">
+              </div>
+                </div>
+                
+              
+                
+                
+                <p>{{ item.title | limitTo: 102 }}</p><br>
+                 <strong>Music Genre:</strong> {{item.custom_fields.music_genre|htmlToPlaintext}}
+                
+                
+               
+              
+            </ons-button>
+          </ons-col>
+            
+            
+        </ons-row>
+<!--        <ons-row>
+          <ons-col>
+            <ons-button modifier="clean" ng-click="gallery.pushPage('dishes.html');">
+              <img src="images/menu/mains.png">
+              <p>Mains</p>
+            </ons-button>
+          </ons-col>
+        </ons-row>
+        <ons-row>
+          <ons-col>
+            <ons-button modifier="clean" ng-click="gallery.pushPage('dishes.html');">
+              <img src="images/menu/salads.png">
+              <p>Salads</p>
+            </ons-button>
+          </ons-col>
+        </ons-row>
+        <ons-row>
+          <ons-col>
+            <ons-button modifier="clean" ng-click="gallery.pushPage('dishes.html');">
+              <img src="images/menu/desserts.png">
+              <p>Desserts</p>
+            </ons-button>
+          </ons-col>
+        </ons-row>-->
+    </ons-list-item>
+    </ons-list>
+      </div>
+
+    </div>
+      </div>
+
+  </ons-page>
+</ons-navigator>   

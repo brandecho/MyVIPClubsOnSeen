@@ -1,0 +1,116 @@
+
+<ons-navigator animation="slide" var="news">  
+  <ons-page>
+    <ons-toolbar modifier="opacity">
+      <div class="left">
+        <ons-toolbar-button ng-click="menu.toggle()"><ons-icon icon="ion-navicon-round" fixed-width="false"></ons-icon></ons-toolbar-button>
+      </div>
+      <div class="center">Venues</div>
+      
+        
+    </ons-toolbar>
+
+    <div class="app-page news-page latest-news" ng-controller="newsController" data-ng-init="getAllRecords()">
+
+      <ons-list modifier="news">
+<ons-list-item ng-if="item.length === 0">
+</ons-list-item>
+        <ons-list-item modifier="chevron" class="list-item-container" ng-repeat="item in items track by $index" ng-click="showPost($index)">
+          <ons-row class="card" ng-style="{'background' : 'bgColor', 'background-image': 'url({{ item.custom_fields.listing_banner|htmlToPlaintext }})', 'background-size': 'cover', }">
+<!--            <ons-col width="95px">-->
+<!--              <div class="thumbnail-box is-loading" images-loaded="imgLoadedEvents">-->
+<!--                <img ng-show="{{ item.thumbnail_images }}" ng-src="{{ item.thumbnail_images.thumbnail.url }}" class="thumbnail">
+              </div>-->
+<!--            </ons-col>-->
+            <ons-col>
+              <div class="name" >
+                {{ item.title | limitTo: 102 }}
+              </div>
+              <div class="category" ng-show="{{ item.taxonomy_listingcategory }}">
+                <span ng-repeat="cat in item.taxonomy_listingcategory">
+                    {{cat.title}}, 
+                  </span>
+              </div>
+              <div class="desc">
+                                   <!--              Ratings            -->                
+                   <div ng-app="app" ng-controller="RatingCtrl" class="container">
+                       
+                       
+                <ons-row>
+
+                     <ons-col width="115px">
+                         <div star-rating ng-model="rating1" max="5" on-rating-selected="rateFunction(rating)"></div>
+                    </ons-col>
+                    <ons-col>
+                             <div>
+<!--                        <p>{{item.custom_fields.average_rating|htmlToPlaintext}}</p>-->
+                         </div>
+                    </ons-col>
+                  </ons-row>
+                  </div>
+                  
+                <!--             Endf Ratings             -->  
+                  
+                  <!--                Music Genre              -->                
+                  <ons-row>
+                  <ons-col width="20px">
+                      <div align="center">
+                          <i class="ion-android-volume-up icon-white"></i>
+                      </div>
+    
+                  </ons-col>
+                  <ons-col>
+                     
+<!--                          <strong>Music Genre:</strong>-->
+                <span class="music_genre"> {{item.custom_fields.music_genre|htmlToPlaintext}}</span>
+                      
+                  </ons-col>
+                  </ons-row>
+                  
+                  
+    
+                    <!--               Location             -->                       
+                  
+                  
+                  <ons-row>
+                  <ons-col width="20px">
+                      <div align="center">
+                          <i class="ion-location icon-white"></i>
+                      </div>      
+                  </ons-col>
+                  <ons-col width="80%">
+                      <div>
+                          <span class="music_genre">{{ item.custom_fields.address | htmlToPlaintext }}</span>
+                      </div>
+                  </ons-col>
+                  </ons-row>
+
+            
+                  
+<!--                {{ item.excerpt | htmlToPlaintext | limitTo: 100 }} ...                -->
+                  
+<!--                comments and favorites-->
+                  <div>
+                    <!-- <i class="ion-android-chat"></i> Comments  {{ item.comment_count }}   --> <!--<i class="ion-star"></i> Average Rating {{item.custom_fields.average_rating|htmlToPlaintext}}  <a id="moreButton" rel="home" modifier="tiny" ng-click="nextPage()">Read More...</a>-->
+                  </div>
+              </div>
+
+            </ons-col>
+               <div>
+                
+
+              </div>
+            
+            <ons-col width="40px"></ons-col>
+          </ons-row>
+        </ons-list-item>
+
+      </ons-list>
+
+<!--      <ons-button id="moreButton" rel="home" modifier="small" ng-click="nextPage()">MORE NEWS</ons-button>-->
+
+    </div>
+
+  </ons-page>
+</ons-navigator>   
+
